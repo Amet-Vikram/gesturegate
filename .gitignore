@@ -1,0 +1,35 @@
+# ---- Trained models ----
+# Excluded from the repo; see README / HAGRID_MODEL_TRAINING.md to retrain.
+*.task
+
+# ---- Python (inference_server) ----
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+.mypy_cache/
+.coverage
+htmlcov/
+harnesses/
+results/
+
+# ---- Go (relay_server) ----
+relay_server/relay_server
+relay_server/*.exe
+*.test
+*.out
+
+# ---- .NET / WPF (GestureViewer) ----
+bin/
+obj/
+*.user
+.vs/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

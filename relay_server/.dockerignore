@@ -1,0 +1,35 @@
+# Build artifacts from local `go build` -- the Docker build compiles fresh
+
+# inside the builder stage, these would just be dead weight in the context.
+
+relay-server
+relay-check
+\*.log
+
+# devices.json is excluded on purpose, as a guardrail: even if a future
+
+# edit to the Dockerfile carelessly adds `COPY devices.json .`, it can't
+
+# accidentally pull real tokens into an image layer, because Docker never
+
+# even sees the file as part of the build context.
+
+devices.json
+
+# Not needed inside the container -- test_client.py is a dev/testing tool,
+
+# not part of the deployed server.
+
+test_client.py
+**pycache**/
+\*.pyc
+
+# Docs aren't needed at runtime.
+
+\*.md
+
+# VCS/editor noise.
+
+.git
+.gitignore
+.vscode

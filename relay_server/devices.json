@@ -1,0 +1,26 @@
+[
+    {
+        "token": "dev-edge-token-change-me",
+        "device_id": "edge-1",
+        "role": "edge",
+        "topics": [
+            "edge-1"
+        ]
+    },
+    {
+        "token": "dev-client-token-change-me",
+        "device_id": "client-1",
+        "role": "client",
+        "topics": [
+            "edge-1"
+        ]
+    },
+    {
+        "token": "dev-client2-token-change-me",
+        "device_id": "client-2",
+        "role": "client",
+        "topics": [
+            "edge-2"
+        ]
+    }
+]

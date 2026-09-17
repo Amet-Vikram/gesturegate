@@ -1,0 +1,24 @@
+# Virtual environments and caches — never belong in the image
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Leftover / scratch files
+files.txt
+
+# Test files — not needed at runtime; run tests on the host or in CI,
+# not inside the deployed image
+test_*.py
+
+# Project docs and thesis artifacts — irrelevant to the running system
+*.md
+.git/
+.gitignore
+
+# The stock model gets COPY'd explicitly in the Dockerfile only if
+# present; if you keep alternate/backup .task files around locally,
+# exclude anything not explicitly named to avoid bloating the image
+# or accidentally shipping a stale model
+*.task.bak
+*.task.old

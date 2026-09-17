@@ -1,0 +1,21 @@
+services:
+  relay:
+    build: .
+    container_name: gesture-relay
+    ports:
+      # LAN devices (edge device, Windows client) reach this at
+      # ws://<host-machine-LAN-IP>:8080/ws/gesture.
+      - "8080:8080"
+    volumes:
+      - ./devices.json:/app/devices.json:ro
+    environment:
+      - RELAY_DEVICES_FILE=/app/devices.json
+    restart: unless-stopped
+
+    stop_grace_period: 15s
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
